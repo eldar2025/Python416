@@ -3586,3 +3586,4 @@ names = ['Adam', ["Bob", ["Chet", "Cat"], "Bard", "Bert"], 'Alex', ["Bea", "Bill
 # print(negative_number(lst))
 
 
+print("Текст в локальном репозитории")

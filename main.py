@@ -3586,4 +3586,24 @@ names = ['Adam', ["Bob", ["Chet", "Cat"], "Bard", "Bert"], 'Alex', ["Bea", "Bill
 # print(negative_number(lst))
 
 
-print("Текст в локальном репозитории")
+# print("Текст в локальном репозитории")
+
+
+# 25.03.2025
+
+# Файлы
+
+# f = open("test.txt")
+# print(*f)
+# print(f)
+# print(f.mode)
+# print(f.name)
+# print(f.encoding)
+#
+# f.close()
+# print(f.closed)
+
+f = open("test.txt" , "r")
+print(f.read())
+
+f.close()

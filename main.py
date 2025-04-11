@@ -3542,7 +3542,7 @@ import re
 # print(to_str(254,16))
 #
 #
-names = ['Adam', ["Bob", ["Chet", "Cat"], "Bard", "Bert"], 'Alex', ["Bea", "Bill"], "Ann"]
+# names = ['Adam', ["Bob", ["Chet", "Cat"], "Bard", "Bert"], 'Alex', ["Bea", "Bill"], "Ann"]
 # print(names)
 # print(len(names))
 # print(names[0])
@@ -3571,7 +3571,7 @@ names = ['Adam', ["Bob", ["Chet", "Cat"], "Bard", "Bert"], 'Alex', ["Bea", "Bill
 # print(count_items(names))
 
 
-#20.03.2025
+# 20.03.2025
 #
 # def negative_number(n):
 #     if not n:
@@ -3603,7 +3603,213 @@ names = ['Adam', ["Bob", ["Chet", "Cat"], "Bard", "Bert"], 'Alex', ["Bea", "Bill
 # f.close()
 # print(f.closed)
 
-f = open("test.txt" , "r")
-print(f.read())
+# f = open("test.txt" , "r")
+# print(f.read())
+#
+# f.close()
 
-f.close()
+
+# 27.03.2025
+
+# f = open("xyz.txt", "w")
+# f.write("This is line1.\nThis is line2.\nThis is line2.\n")
+# f.close()
+
+
+# f = open("xyz.txt")
+# # print(f.read())
+#
+# # print(f.readline())
+# # print(f.readline(8))
+# # print(f.readline())
+# # print(f.readline())
+# # print(f.readline())
+#
+# print(f.readline(15))
+# f.close()
+
+# f = open("xyz.txt")
+# for line in f:
+#     print(line)
+# f.close()
+
+
+# lines = ["This is line1.\n", "This is line1.\n", "This is line1.\n"]
+#
+#
+# f = open("lines.txt", "w")
+# f.writelines(lines)
+# f.close()
+
+
+# lines = [str(i) for i in range(10,1000,15)]
+# print(lines)
+#
+# f = open("lines.txt", "w")
+# for index in lines:
+#     f.write(index + "\t")
+# f.close()
+
+# file = ("text2.txt")
+#
+#
+# f = open(file, "w")
+# f.write("Замена строки в текстовом файле;\nизменить строку в списке;\nзаписать список в файл")
+# f.close()
+#
+# f = open(file, "r")
+# read_line = f.readlines()
+# print(read_line)
+# read_line[1] ="Hello world!\n"
+# print(read_line)
+# f.close()
+#
+# f = open(file, "r")
+# f.writelines(read_line)
+# f.close()
+
+
+# f = open("test.txt", "r")
+# print(f.read(3))
+# print(f.tell()) # возвращает текущую позицию условного курсора в файле
+# print(f.seek(1)) # перемещает условный курсорв в заданную позицию
+# print(f.read())
+# print(f.tell())
+# f.close()
+
+
+# f = open("test2.txt", "w+")
+# print(f.write("I am learning Python"))
+# print(f.seek(0))
+# print(f.write("--new string--"))
+#
+#
+# f.close()
+
+# with open("text.txt", "w") as f:
+#     print(f.write("0123456789"))
+# print(f.closed)
+
+# lst = [4.5, 2.8, 3.9, 1.0, 0.3, 4.33, 5.04]
+#
+#
+# def get_line(lt):
+#     lt = list(map(str, lt))
+#     return " " .join(lt)
+#
+# # print(get_line(lst))
+# with open("res.txt", "w") as f:
+#     f.write(get_line(lst))
+#
+# print("Конец строки")
+
+
+# with open("res.txt") as f:
+#     nums = f.read()
+#
+# print(nums)
+#
+# print(sum(list(map(float, nums.split()))))
+
+
+# with open("res2.txt", "w") as f:
+#     f.write("Файл — именованная область данных на носителе информации, используемая как базовый объект взаимодействия"
+#             " с данными в операционных системах.")
+#
+#
+# def longest_words(file):
+#     with open(file) as text:
+#         w = text.read().split()
+#         max_length = len(max(w, key=len))
+#         res = [word for word in w if len(word) == max_length]
+#         if len(res) == 1:
+#             return res[0]
+#         return res
+#
+#
+# print(longest_words("res2.txt"))
+
+
+# text = "Строка №1\nСтрока №2\nСтрока №3\nСтрока №4\nСтрока №5\nСтрока №6\nСтрока №7\nСтрока №8\nСтрока №9\nСтрока №10\n"
+# with open("one.txt", "w") as f:
+#     f.write(text)
+#
+# with open("one.txt", "r") as fr, open("two.txt", "w") as fw:
+#     for line in fr:
+#         line = line.replace("Строка", "Линия -")
+#         fw.write(line)
+
+
+import os
+
+# print(os.getcwd()) # путь к текущей директории
+#
+# print(os.listdir()) # возвращает список директорий и файлов
+# print(os.listdir(".."))
+# print(os.listdir(".venv"))
+
+# os.mkdir("folder") # создает папку
+# os.rmdir("folder")  # удаляет папку
+
+
+# os.makedirs("nested1/nested2/nested3") # создает папки в папках по заданному в скобках
+
+# os.remove("xyz.txt") # удаляет файл
+
+# os.rename("two.txt", "www.txt") # переименовывает файл
+
+# os.rename("www.txt","folder/www.txt" ) # переместили файл в заданную папку
+# os.renames("www.txt","folder/www.txt" ) # переместил файл, создавая промежуточные папки
+
+
+# 01.04.2025
+
+# print(os.walk("nested1"))
+# for root, dirs, files in os.walk("nested1", topdown=True):
+#     print("Root:", root)
+#     print("\tdirs:", dirs)
+#     print("\tfiles:", files)
+
+
+# import os.path
+#
+# print(os.path.split(r"C:\Users\User\Desktop\Python\nested1\text.txt"))
+#
+# print(os.path.join(r"C:\Users", "User", "Desktop", "Python", "nested1", "text.txt"))
+
+
+dirs = [r"Work\F1", r"Work\F2\F21"]
+# for d in dirs:
+#     os.makedirs(d)
+
+files = {
+    "Work": ["w.txt"],
+    r"Work\F1": ["f11.txt", "f12.txt", "f13.txt"],
+    r"Work\F2\F21": ["f211.txt", "f212.txt"]
+}
+
+for d, files in files.items():
+    for file in files:
+        file_path = os.path.join(d, file)
+        # print(file_path)
+        open(file_path, "w").close()
+
+
+file_with_text = [r"Work\w.txt", r"Work\F1\f12.txt", r"Work\F2\F21\f211.txt", r"Work\F2\F21\f212.txt"]
+
+for file in file_with_text:
+    with open(file, "w") as f:
+        f.write(f"Такой-то текст в файле {file}")
+
+
+def print_tree(root, topdown):
+    print(f"Обход {root} {'сверху вниз' if topdown else 'снизу вверх'}")
+    for root1, directory, file_name in os.walk(root, topdown):
+        print(root1)
+        print(directory)
+        print(file_name)
+    print("-" * 50)
+
+
+print_tree("Work", False)
+print_tree("Work", True)

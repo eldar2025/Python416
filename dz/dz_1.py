@@ -301,12 +301,14 @@
 
 
 #03.04.2025
-import os
-file_path = r"C:\Users\User\Desktop\Python\dz\test3.txt"
+# import os
+# file_path = r"C:\Users\User\Desktop\Python\dz\test3.txt"
+#
+# if os.path.exists(file_path):
+#     directory, name = os.path.split(file_path)
+#     atime = os.path.getatime(file_path)
+#     print(f"{name} ({directory})- время последнего доступа к файлу {atime} секунд ")
+# else:
+#     print(f"Файл {file_path} не существует")
 
-if os.path.exists(file_path):
-    directory, name = os.path.split(file_path)
-    atime = os.path.getatime(file_path)
-    print(f"{name} ({directory})- время последнего доступа к файлу {atime} секунд ")
-else:
-    print(f"Файл {file_path} не существует")
+#dz

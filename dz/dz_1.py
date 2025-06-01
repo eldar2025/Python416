@@ -300,7 +300,7 @@
 # f.close()
 
 
-#03.04.2025
+# 03.04.2025
 # import os
 # file_path = r"C:\Users\User\Desktop\Python\dz\test3.txt"
 #
@@ -311,4 +311,118 @@
 # else:
 #     print(f"Файл {file_path} не существует")
 
-#dz
+# 08.04.2025
+from math import sqrt
+
+
+class Area:
+    __count = 0
+
+    @staticmethod
+    def triangle_area(a, b, c):
+        p = (a + b + c) / 2
+        Area.__count += 1
+        return sqrt(p * (p - a) * (p - b) * (p - c))
+
+    @staticmethod
+    def triangle_area_2(a, h):
+        Area.__count += 1
+        return 0.5 * a * h
+
+    @staticmethod
+    def square_area(a):
+        Area.__count += 1
+        return a ** 2
+
+    @staticmethod
+    def rectangle_area(a, b):
+        Area.__count += 1
+        return a * b
+
+    @staticmethod
+    def get_count():
+        return Area.__count
+
+
+print("Площадь треугольника по формуле Герона (3,4,5):", Area.triangle_area(3, 4, 5))
+print("Площадь треугольника по формуле Герона(13,14,15:", Area.triangle_area(13, 14, 15))
+print("Площадь треугольника через основание и высоту(6,7:", Area.triangle_area_2(6, 7))
+print("Площадь квадрата:", Area.square_area(7))
+print("Площадь квадрата:", Area.square_area(8))
+print("Площадь квадрата:", Area.square_area(9))
+print("Площадь прямоугольника:", Area.rectangle_area(2, 6))
+print("Количество подсчетов площади:", Area.get_count())
+
+
+# 15.04.2025
+
+
+# class Rect:
+#     def __init__(self, width, height):
+#         self.width = width
+#         self.height = height
+#
+#     def show_rect(self):
+#         print(f"Прямоугольник:\nШирина: {self.width}\nВысота: {self.height}")
+#
+#
+# class RectFon(Rect):
+#     def __init__(self, width, height, background):
+#         super().__init__(width, height)
+#         self.fon = background
+#
+#     def show_rect(self):
+#         super().show_rect()
+#         print("Фон:", self.fon)
+#
+#
+# # class RectBorder(Rect):
+# #     ...
+#
+#
+# shape1 = RectFon(400, 200, "yellow")
+# shape1.show_rect()
+# print()
+# # shape2 = RectBorder(600,300,"1px","red")
+# # shape2.show_rect()
+
+# 17.04.2025
+
+# class Rect:
+#     def __init__(self, width, height):
+#         self.width = width
+#         self.height = height
+#
+#     def show_rect(self):
+#         print(f"Прямоугольник:\nШирина: {self.width}\nВысота: {self.height}")
+#
+#
+# class RectFon(Rect):
+#     def __init__(self, width, height, background):
+#         super().__init__(width, height)
+#         self.fon = background
+#
+#     def show_rect(self):
+#         super().show_rect()
+#         print("Фон:", self.fon)
+#
+#
+# class RectBorder(Rect):
+#     def __init__(self, width, height, thin, typed, color):
+#         super().__init__(width, height)
+#         self.thin = thin
+#         self.typed = typed
+#         self.color = color
+#
+#     def show_rect(self):
+#         super().show_rect()
+#         print("Толщина", self.thin)
+#         print("Тип рамки", self.typed)
+#         print("Цвет рамки", self.color)
+#
+#
+# shape1 = RectFon(400, 200, "yellow")
+# shape1.show_rect()
+# print()
+# shape2 = RectBorder(600, 300, "1px","solid","red")
+# shape2.show_rect()

@@ -427,8 +427,7 @@
 # shape2 = RectBorder(600, 300, "1px","solid","red")
 # shape2.show_rect()
 
-#22.04.2022
-
+# 22.04.2022
 
 
 # class Student:
@@ -455,9 +454,9 @@
 # s1.show()
 # s2.show()
 
-#24.04.2025
+# 24.04.2025
 
-#Доработать занятие 29
+# Доработать занятие 29
 
 # class Clock:
 #     __DAY = 86400
@@ -504,3 +503,163 @@
 #     print("Время равно")
 # else:
 #     print("Время разное")
+
+
+# 29.05.2025 (дз 30) истек 4.05
+
+# import math
+# from abc import ABC, abstractmethod
+#
+#
+# class Shape:
+#     def __init__(self, color):
+#         self.color = color
+#
+#     @abstractmethod
+#     def get_perimeter(self):
+#         pass
+#
+#     @abstractmethod
+#     def get_area(self):
+#         pass
+#
+#     @abstractmethod
+#     def draw(self):
+#         pass
+#
+#     @abstractmethod
+#     def info(self):
+#         pass
+#
+#
+# class Square(Shape):
+#     def __init__(self, side, color):
+#         super().__init__(color)
+#         self.side = side
+#
+#     def get_perimeter(self):
+#         return self.side * 4
+#
+#     def get_area(self):
+#         return self.side * self.side
+#
+#     def draw(self):
+#         return ("*  " * self.side + "\n") * self.side
+#
+#     def info(self):
+#         print(f"=== Квадрат ===\nСторона: {self.side}\nЦвет: {self.color}"
+#               f"\nПлощадь: {self.get_area()}\nПериметр: {self.get_perimeter()}\n{self.draw()}\n")
+#
+#
+# class Rectangle(Shape):
+#     def __init__(self, length, width, color):
+#         super().__init__(color)
+#         self.length = length
+#         self.width = width
+#
+#     def get_perimeter(self):
+#         return (self.length + self.width) * 2
+#
+#     def get_area(self):
+#         return self.length * self.width
+#
+#     def draw(self):
+#         return ("*  " * self.width + "\n") * self.length
+#
+#     def info(self):
+#         print(f"=== Прямоугольник ===\nДлина: {self.length}\nШирина: {self.width}\nЦвет: {self.color}"
+#               f"\nПлощадь: {self.get_area()}\nПериметр: {self.get_perimeter()}\n{self.draw()}\n")
+#
+#
+# class Triangle(Shape):
+#     def __init__(self, side_1, side_2, side_3, color):
+#         super().__init__(color)
+#         self.side_1 = side_1
+#         self.side_2 = side_2
+#         self.side_3 = side_3
+#
+#     def get_perimeter(self):
+#         return self.side_1 + self.side_2 + self.side_3
+#
+#     def get_area(self):
+#         p = self.get_perimeter() / 2
+#         return round(math.sqrt(p * (p - self.side_1) * (p - self.side_2) * (p - self.side_3)), 2)
+#
+#     def draw(self):
+#         # return ("*  " * self.width + "\n") * self.length
+#         rows = []
+#         for n in range(self.side_2):  # 6, n = 2
+#             rows.append(" " * n + "*" * (self.side_1 - 2 * n))  # ['***********', ' *********', '  *******']
+#         rows.reverse()
+#         # return "\n".join(reversed(rows))
+#         return "\n".join(rows)
+#
+#     def info(self):
+#         print(f"=== Треугольник ===\nСторона 1: {self.side_1}\nСторона 2: {self.side_2}\nСторона 3: {self.side_3}"
+#               f"\nЦвет: {self.color}\nПлощадь: {self.get_area()}\nПериметр: {self.get_perimeter()}\n{self.draw()}\n")
+#
+#
+# # sq = Square(3, "red")
+# # sq.info()
+# # rect = Rectangle(3, 7, "green")
+# # rect.info()
+# # tr = Triangle(11, 6, 6, "yellow")
+# # tr.info()
+#
+# fig = [Square(3, "red"), Rectangle(3, 7, "green"), Triangle(11, 6, 6, "yellow")]
+#
+# for g in fig:
+#     g.info()
+
+
+# дз 31
+# from car.electrocar import ElectroCar
+#
+#
+# e_car = ElectroCar("Tesla","T",2018,9000,100)
+# e_car.show_car()
+# e_car.descript_battery()
+
+#dz 32
+
+import json
+from random import choice
+
+
+def gen_person():
+    name = ''
+    tel = ''
+
+    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+    nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+
+    while len(name) != 7:
+        name += choice(letters)
+    # print(name)
+
+    while len(tel) != 10:
+        tel += choice(nums)
+    # print(tel)
+
+    person = {
+        'name': name,
+        'tel': tel
+    }
+
+    return person, tel
+
+
+def write_json(person_dict,num):  # {'name': ..., 'tel': ...}
+    try:
+        data = json.load(open("persons.json"))
+    except FileNotFoundError:
+        data = {}
+
+    data[num] = person_dict
+
+    with open("persons.json", "w") as f:
+        json.dump(data, f, indent=2)
+
+
+for i in range(5):
+    write_json(gen_person()[0], gen_person()[1])
